@@ -1,7 +1,7 @@
 name: Update Image
 
 on:
-  push: # FIXME deletar
+  push:
   workflow_dispatch:
   schedule:
     - cron: "0 18 * * 4"
