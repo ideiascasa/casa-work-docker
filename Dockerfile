@@ -4,7 +4,7 @@ USER root
 RUN apk update && apk add --no-cache docker-cli zip wget curl jq git
 
 ENV N8N_PORT="80"
-HEALTHCHECK CMD curl --fail http://localhost/healthz || exit 1
+#HEALTHCHECK CMD curl --fail http://localhost/healthz || exit 1
 
 USER node
 RUN mkdir ~/.n8n/nodes && cd ~/.n8n/nodes && npm install \
