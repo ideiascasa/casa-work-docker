@@ -1,7 +1,7 @@
 FROM docker.n8n.io/n8nio/n8n:next
 
 USER root
-RUN apk update && apk add --no-cache docker-cli zip wget curl jq git
+RUN apk update && apk add --no-cache zip wget curl jq git
 
 ENV N8N_PORT="80"
 # TODO Cluster - HEALTHCHECK CMD curl --fail http://localhost/healthz || exit 1
