@@ -1,17 +1,21 @@
 FROM docker.n8n.io/n8nio/n8n:next
 
+# Custom Alpine packages
 USER root
-RUN apk update && apk add --no-cache zip wget curl jq git
+RUN apk update && apk add --no-cache docker-cli zip wget curl jq git
 
-ENV N8N_PORT="80"
-# TODO Cluster - HEALTHCHECK CMD curl --fail http://localhost/healthz || exit 1
-
+# Custom N8N nodes
 USER node
 RUN mkdir ~/.n8n/nodes && cd ~/.n8n/nodes && npm install \
   n8n-nodes-guuid-generator \
   n8n-nodes-kommo \
   n8n-nodes-text-manipulation
 
+ENV N8N_PORT="80"
 ENV N8N_RUNNERS_ENABLED="true"
 ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS="true"
+# TODO Cluster - HEALTHCHECK CMD curl --fail http://localhost/healthz || exit 1
+
+# docker-cli
+USER root
 ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
