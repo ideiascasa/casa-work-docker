@@ -14,6 +14,7 @@ RUN mkdir ~/.n8n/nodes && cd ~/.n8n/nodes && npm install \
 ENV N8N_PORT="80"
 ENV N8N_RUNNERS_ENABLED="true"
 ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS="true"
+ENV OFFLOAD_MANUAL_EXECUTIONS_TO_WORKERS="true"
 #ENV QUEUE_HEALTH_CHECK_ACTIVE="true"
 #HEALTHCHECK CMD curl --fail http://localhost/healthz || exit 1
 
