@@ -10,7 +10,8 @@ RUN mkdir ~/.n8n/nodes && cd ~/.n8n/nodes && npm install \
   n8n-nodes-kommo \
   n8n-nodes-elevenlabs \
   @splainez/n8n-nodes-phonenumber-parser \
-  n8n-nodes-chatwoot
+  n8n-nodes-chatwoot \
+  n8n-nodes-globals
 
 ENV N8N_PORT="80"
 ENV N8N_RUNNERS_ENABLED="true"
